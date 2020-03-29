@@ -4,8 +4,8 @@ Convert multiple .svg files to vector drawables for Android.
 
 This forks servers as minimal enchantment of the original repository. The Google algorithm leaves the default width and 
 height of the served .svg. This could lead to compilation problems where the compiler throws an OutOfMemory exception.
-Also, for some reason it ads '_pt_' to some measures, which also leads to compilation problems. That is why I created a 
-Python script (_cleaner.py_) that would optimize the files to the minimum required width (200dp) and height.
+Also, for some reason it adds '_pt_' to some measures, which also leads to compilation problems. That is why I created a 
+Python script (_cleaner.py_) that would optimize the files to the minimum required width (200dp) and height and remove the unnecessary '_pt_'.
 
 ## Compiling/Executing
 ### Kotlin/Java project 
@@ -27,8 +27,7 @@ You can also change the code in Runner.main to a custom instance of SvgFilesProc
         $ python3 cleaner.py
 
 ## Known issues
-* The Kotlin project needs to be executed two times because in the first one throws a 
-IllegalArgumentException caused by a null value that in fact is not null in any moment.
+* The Kotlin project needs to be executed two times because in the first one throws a IllegalArgumentException caused by a null value that in fact is not null in any moment.
 
 ## Plans
 * Fix issues.
