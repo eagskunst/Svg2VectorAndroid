@@ -3,7 +3,13 @@ import os
 def transformDpToInt(line):
     words = line.split('"')
     svgWidthWithDp = words[1]
-    value = int(svgWidthWithDp[0:len(svgWidthWithDp)-2])
+    value = 0
+    lenght = len(svgWidthWithDp)
+    if '.' in svgWidthWithDp:
+        floatValue = float(svgWidthWithDp[0:lenght-2])
+        value = int(floatValue)
+    else:
+        value = int(svgWidthWithDp[0:lenght-2])
     return value
 
 arr = os.listdir()

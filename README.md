@@ -8,7 +8,7 @@ Also, for some reason it ads '_pt_' to some measures, which also leads to compil
 Python script (_cleaner.py_) that would optimize the files to the minimum required width (200dp) and height.
 
 ## Compiling/Executing
-### Java project 
+### Kotlin/Java project 
 
 Install and configure Kotlin in your favorite IDE if you have not.
 * Clone the repository.
@@ -29,8 +29,6 @@ You can also change the code in Runner.main to a custom instance of SvgFilesProc
 ## Known issues
 * The Kotlin project needs to be executed two times because in the first one throws a 
 IllegalArgumentException caused by a null value that in fact is not null in any moment.
-* The _cleaner.py_ script could throw an exception when the width or height is a Float.
-To solve this, round the values of the .xml file with floating values (eg: 205.53dp -> 206dp)
 
 ## Plans
 * Fix issues.
