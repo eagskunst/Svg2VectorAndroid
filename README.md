@@ -16,6 +16,7 @@ Install and configure Kotlin in your favorite IDE if you have not.
 * Configure the program arguments (Eg: Edit configurations -> Program arguments in IntelliJ). The arguments are separated
 by spaces.
 * Run
+
 You can also change the code in Runner.main to a custom instance of SvgFilesProcessor
 
 ### Python script
