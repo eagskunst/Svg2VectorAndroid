@@ -1,7 +1,4 @@
 # Svg2VectorAndroid
-It's really troublesome to import multiple svgs in Android Studio as it is a one by one process and not batch operation.
-So if you have to import some 100 svgs, it involves navigating to Project -> New ->Vector Asset, then again browse the svg file you want
-to import, then rename if you follow any naming convention and then finally next and finish.
 
 This project helps to batch convert svg files to vector drawable xmls in one shot, with option to provide extention and extention suffix.
 
