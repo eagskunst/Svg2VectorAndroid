@@ -1,19 +1,38 @@
 # Svg2VectorAndroid
 
-This project helps to batch convert svg files to vector drawable xmls in one shot, with option to provide extention and extention suffix.
+Convert multiple .svg files to vector drawables for Android.
 
-Simply pass source directory path to SvgFilesProcessor and call process.
+This forks servers as minimal enchantment of the original repository. The Google algorithm leaves the default width and 
+height of the served .svg. This could lead to compilation problems where the compiler throws an OutOfMemory exception.
+Also, for some reason it ads '_pt_' to some measures, which also leads to compilation problems. That is why I created a 
+Python script (_cleaner.py_) that would optimize the files to the minimum required width (200dp) and height.
 
-Sample below:
+## Compiling/Executing
+### Java project 
 
-SvgFilesProcessor processor = new SvgFilesProcessor("/Volumes/Development/Features/MySvgs");
-processor.process();
+Install and configure Kotlin in your favorite IDE if you have not.
+* Clone the repository.
+* Open in on your favorite IDE.
+* Configure the program arguments (Eg: Edit configurations -> Program arguments in IntelliJ). The arguments are separated
+by spaces.
+* Run
+You can also change the code in Runner.main to a custom instance of SvgFilesProcessor
 
-This will create a new folder "ProcessedSvgs" inside source folder.
+### Python script
+* Install Python3 on your system if you have not.
+* After running the SvgFilesProcessor, copy the _cleaner.py_ to the directory with the processed files (source/ProcessedSVG by default).
+* Execute the following command while in the directory:
+    
+        $ python3 cleaner.py
 
-It uses studio ide class Svg2Vector class implementation (reference https://android.googlesource.com/platform/tools/base/+/master/sdk-common/src/main/java/com/android/ide/common/vectordrawable/Svg2Vector.java)
-to parse svg and convert to xml file.
+## Known issues
+* The Kotlin project needs to be executed two times because in the first one throws a 
+IllegalArgumentException caused by a null value that in fact is not null in any moment.
+* The _cleaner.py_ script could throw an exception when the width or height is a Float.
+To solve this, round the values of the .xml file with floating values (eg: 205.53dp -> 206dp)
 
-If you directly want to use the jar , use as below:
-
-java -jar Svg2VectorAndroid-1.0.jar "SourceDirectoryPath"
+## Plans
+* Fix issues.
+* Migrate Python3 code to Kotlin.
+* Create .jar .
+* Create UI for the process.
