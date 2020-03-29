@@ -23,10 +23,10 @@ constructor(private val sourceSvgDirectory: String, destinationVectorDirectory: 
     fun process() {
         try {
             val options = EnumSet.of(FileVisitOption.FOLLOW_LINKS)
-            val sourceSvgPath: Path? = Paths.get(sourceSvgDirectory)
+            val sourceSvgPath: Path = Paths.get(sourceSvgDirectory)
             //check first if source is a directory
-            if (Files.isDirectory(sourceSvgPath!!)) {
-                Files.walkFileTree(sourceSvgPath, options, Int.MAX_VALUE, object : FileVisitor<Path> {
+            if (Files.isDirectory(sourceSvgPath)) {
+                Files.walkFileTree(Paths.get(sourceSvgDirectory), options, Int.MAX_VALUE, object : FileVisitor<Path> {
                     @Throws(IOException::class)
                     override fun postVisitDirectory(dir: Path,
                                                     exc: IOException): FileVisitResult {
